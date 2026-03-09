@@ -11,7 +11,7 @@ import portfolioIllustration from "@/assets/portfolio-illustration.jpg";
 
 const services = [
   { icon: HomeIcon, title: "House Painting", desc: "Interior & exterior painting that transforms your space." },
-  { icon: Paintbrush, title: "Murals", desc: "Bold, custom wall murals that tell your story." },
+  { icon: Paintbrush, title: "Branding", desc: "Custom branding for clothes, merchandise, and businesses." },
   { icon: Palette, title: "Branding & Logos", desc: "Creative brand identity and logo design." },
   { icon: PenTool, title: "Illustrations", desc: "Custom illustrations and graphic design." },
 ];
