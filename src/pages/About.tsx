@@ -38,7 +38,7 @@ const About = () => (
               Paintsurgeon Painting Services is a creative business born from a deep passion for art, color, and transformation. Based in Kenya, we've spent over a decade turning blank walls into masterpieces and building brands that stand out.
             </p>
             <p>
-              From residential house painting to large-scale murals, from logo design to full brand identities — we bring the same level of precision, creativity, and dedication to every project.
+              From residential house painting to clothes branding, from logo design to full brand identities — we bring the same level of precision, creativity, and dedication to every project.
             </p>
             <p>
               Our mission is simple: to deliver exceptional quality that speaks for itself. Every brush stroke, every pixel, every design is crafted with purpose.
