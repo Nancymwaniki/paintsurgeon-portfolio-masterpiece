@@ -18,7 +18,7 @@ const services = [
 
 const projects = [
   { img: portfolioHouse, title: "Modern Interior", category: "House Painting" },
-  { img: portfolioMural, title: "Cultural Mural", category: "Murals" },
+  { img: portfolioMural, title: "Branded Apparel", category: "Branding" },
   { img: portfolioLogos, title: "Brand Collection", category: "Logo Design" },
   { img: portfolioIllustration, title: "African Art Series", category: "Illustration" },
 ];
