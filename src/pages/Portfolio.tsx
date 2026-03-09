@@ -11,7 +11,7 @@ import logo4 from "@/assets/logos/WhatsApp Image 2026-03-09 at 5.25.41 PM.jpeg";
 import logo5 from "@/assets/logos/WhatsApp Image 2026-03-09 at 5.26.40 PM.jpeg";
 import logo6 from "@/assets/logos/WhatsApp Image 2026-03-09 at 5.27.32 PM.jpeg";
 
-const categories = ["All", "House Painting", "Murals", "Logos", "Illustrations"];
+const categories = ["All", "House Painting", "Branding", "Logos", "Illustrations"];
 
 const projects = [
   { img: portfolioHouse, title: "Modern Living Room", category: "House Painting", desc: "Complete interior transformation with warm earth tones." },
