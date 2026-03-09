@@ -38,7 +38,7 @@ const About = () => (
               Paintsurgeon Painting Services is a creative business born from a deep passion for art, color, and transformation. Based in Kenya, we've spent over a decade turning blank walls into masterpieces and building brands that stand out.
             </p>
             <p>
-              From residential house painting to large-scale murals, from logo design to full brand identities — we bring the same level of precision, creativity, and dedication to every project.
+              From residential house painting to clothes branding, from logo design to full brand identities — we bring the same level of precision, creativity, and dedication to every project.
             </p>
             <p>
               Our mission is simple: to deliver exceptional quality that speaks for itself. Every brush stroke, every pixel, every design is crafted with purpose.
@@ -76,7 +76,7 @@ const About = () => (
       <div className="container mx-auto px-4 text-center">
         <SectionHeading title="SKILLS & EXPERTISE" />
         <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-          {["House Painting", "Interior Design", "Exterior Painting", "Mural Art", "Logo Design", "Branding", "Graphic Design", "Illustration", "Custom Drawings", "Color Consultation"].map((skill) => (
+          {["House Painting", "Interior Design", "Exterior Painting", "Clothes Branding", "Logo Design", "Branding", "Graphic Design", "Illustration", "Custom Drawings", "Color Consultation"].map((skill) => (
             <span
               key={skill}
               className="font-body text-sm px-4 py-2 rounded-full border border-border bg-muted text-foreground hover:border-primary/50 transition-colors"

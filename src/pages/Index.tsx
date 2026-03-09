@@ -11,14 +11,14 @@ import portfolioIllustration from "@/assets/portfolio-illustration.jpg";
 
 const services = [
   { icon: HomeIcon, title: "House Painting", desc: "Interior & exterior painting that transforms your space." },
-  { icon: Paintbrush, title: "Murals", desc: "Bold, custom wall murals that tell your story." },
+  { icon: Paintbrush, title: "Branding", desc: "Custom branding for clothes, merchandise, and businesses." },
   { icon: Palette, title: "Branding & Logos", desc: "Creative brand identity and logo design." },
   { icon: PenTool, title: "Illustrations", desc: "Custom illustrations and graphic design." },
 ];
 
 const projects = [
   { img: portfolioHouse, title: "Modern Interior", category: "House Painting" },
-  { img: portfolioMural, title: "Cultural Mural", category: "Murals" },
+  { img: portfolioMural, title: "Branded Apparel", category: "Branding" },
   { img: portfolioLogos, title: "Brand Collection", category: "Logo Design" },
   { img: portfolioIllustration, title: "African Art Series", category: "Illustration" },
 ];
@@ -26,7 +26,7 @@ const projects = [
 const testimonials = [
   { name: "Jane M.", text: "Paintsurgeon completely transformed our home. The attention to detail was incredible!", rating: 5 },
   { name: "David K.", text: "Best logo designer in Kenya. Professional, creative, and delivered on time.", rating: 5 },
-  { name: "Sarah W.", text: "The mural they painted at our office is absolutely stunning. Highly recommend!", rating: 5 },
+  { name: "Sarah W.", text: "The branding they did for our uniforms and merchandise is absolutely stunning. Highly recommend!", rating: 5 },
 ];
 
 const Index = () => {
