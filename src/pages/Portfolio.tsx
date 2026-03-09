@@ -15,7 +15,7 @@ const categories = ["All", "House Painting", "Branding", "Logos", "Illustrations
 
 const projects = [
   { img: portfolioHouse, title: "Modern Living Room", category: "House Painting", desc: "Complete interior transformation with warm earth tones." },
-  { img: portfolioMural, title: "Cultural Heritage Mural", category: "Murals", desc: "Large-scale African-inspired mural celebrating Kenyan culture." },
+  { img: portfolioMural, title: "Branded Uniforms Collection", category: "Branding", desc: "Custom branded uniforms and apparel for businesses across Kenya." },
   { img: portfolioLogos, title: "Brand Identity Collection", category: "Logos", desc: "Logo designs for various businesses across Kenya." },
   { img: logo1, title: "Logo Design 1", category: "Logos", desc: "Professional logo design showcasing creative branding solutions." },
   { img: logo2, title: "Logo Design 2", category: "Logos", desc: "Custom logo design tailored to client brand identity." },
