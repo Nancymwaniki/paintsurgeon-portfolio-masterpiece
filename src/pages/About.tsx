@@ -76,7 +76,7 @@ const About = () => (
       <div className="container mx-auto px-4 text-center">
         <SectionHeading title="SKILLS & EXPERTISE" />
         <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-          {["House Painting", "Interior Design", "Exterior Painting", "Mural Art", "Logo Design", "Branding", "Graphic Design", "Illustration", "Custom Drawings", "Color Consultation"].map((skill) => (
+          {["House Painting", "Interior Design", "Exterior Painting", "Clothes Branding", "Logo Design", "Branding", "Graphic Design", "Illustration", "Custom Drawings", "Color Consultation"].map((skill) => (
             <span
               key={skill}
               className="font-body text-sm px-4 py-2 rounded-full border border-border bg-muted text-foreground hover:border-primary/50 transition-colors"

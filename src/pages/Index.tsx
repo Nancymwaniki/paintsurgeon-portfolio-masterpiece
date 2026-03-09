@@ -26,7 +26,7 @@ const projects = [
 const testimonials = [
   { name: "Jane M.", text: "Paintsurgeon completely transformed our home. The attention to detail was incredible!", rating: 5 },
   { name: "David K.", text: "Best logo designer in Kenya. Professional, creative, and delivered on time.", rating: 5 },
-  { name: "Sarah W.", text: "The mural they painted at our office is absolutely stunning. Highly recommend!", rating: 5 },
+  { name: "Sarah W.", text: "The branding they did for our uniforms and merchandise is absolutely stunning. Highly recommend!", rating: 5 },
 ];
 
 const Index = () => {

@@ -25,7 +25,7 @@ const projects = [
   { img: logo6, title: "Logo Design 6", category: "Logos", desc: "Distinctive logo design for brand recognition." },
   { img: portfolioIllustration, title: "African Art Series", category: "Illustrations", desc: "Digital illustrations inspired by African heritage and tradition." },
   { img: portfolioHouse, title: "Residential Exterior", category: "House Painting", desc: "Full exterior repaint with weather-resistant premium paint." },
-  { img: portfolioMural, title: "Office Feature Wall", category: "Murals", desc: "Bold artistic mural for a corporate office space." },
+  { img: portfolioMural, title: "Corporate Merchandise", category: "Branding", desc: "Branded merchandise and apparel for corporate clients." },
 ];
 
 const Portfolio = () => {

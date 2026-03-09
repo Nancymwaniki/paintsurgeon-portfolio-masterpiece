@@ -6,7 +6,7 @@ const physicalServices = [
   { icon: Home, title: "House Painting", desc: "Complete interior and exterior house painting with premium paints and expert finishes." },
   { icon: PaintBucket, title: "Interior Painting", desc: "Transform your living spaces with carefully chosen colors and flawless application." },
   { icon: Layers, title: "Exterior Painting", desc: "Weather-resistant exterior painting that protects and beautifies your property." },
-  { icon: Paintbrush, title: "Murals", desc: "Custom wall murals for homes, businesses, and public spaces that tell unique stories." },
+  { icon: Paintbrush, title: "Clothes Branding", desc: "Custom branding for uniforms, t-shirts, merchandise, and apparel with professional finishes." },
 ];
 
 const digitalServices = [
