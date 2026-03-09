@@ -29,11 +29,11 @@ const Footer = () => (
         <div className="flex flex-col gap-3 text-sm text-muted-foreground font-body">
           <div className="flex items-center gap-2">
             <Phone size={16} className="text-primary" />
-            <span>+254 700 000 000</span>
+            <span>+254 704 459 870</span>
           </div>
           <div className="flex items-center gap-2">
             <Mail size={16} className="text-secondary" />
-            <span>info@paintsurgeon.co.ke</span>
+            <span>njorogekush@gmail.com</span>
           </div>
           <div className="flex items-center gap-2">
             <MapPin size={16} className="text-accent" />

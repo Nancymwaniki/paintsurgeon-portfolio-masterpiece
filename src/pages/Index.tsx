@@ -66,7 +66,7 @@ const Index = () => {
               <Link to="/portfolio">View Our Work <ArrowRight className="ml-2" size={18} /></Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="font-body text-base border-foreground/20 text-foreground hover:bg-foreground/10">
-              <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">Get a Quote</a>
+              <a href="https://wa.me/254704459870" target="_blank" rel="noopener noreferrer">Get a Quote</a>
             </Button>
           </motion.div>
         </div>
@@ -176,7 +176,7 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="font-body bg-primary hover:bg-primary/90 text-primary-foreground">
-              <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              <a href="https://wa.me/254704459870" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
             </Button>
             <Button asChild size="lg" variant="outline" className="font-body border-foreground/20 text-foreground hover:bg-foreground/10">
               <Link to="/contact">Contact Form</Link>

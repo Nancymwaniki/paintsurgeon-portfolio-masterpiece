@@ -39,17 +39,17 @@ const Contact = () => {
               <div>
                 <h2 className="font-display text-3xl text-foreground mb-6">CONTACT INFO</h2>
                 <div className="space-y-4">
-                  <a href="tel:+254700000000" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-body">
+                  <a href="tel:+254704459870" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-body">
                     <Phone size={20} className="text-primary" />
-                    +254 700 000 000
+                    +254 704 459 870
                   </a>
-                  <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-secondary transition-colors font-body">
+                  <a href="https://wa.me/254704459870" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-secondary transition-colors font-body">
                     <MessageCircle size={20} className="text-secondary" />
                     WhatsApp Us
                   </a>
-                  <a href="mailto:info@paintsurgeon.co.ke" className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors font-body">
+                  <a href="mailto:nancymwa087@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-accent transition-colors font-body">
                     <Mail size={20} className="text-accent" />
-                    info@paintsurgeon.co.ke
+                    njorogekush@gmail.com
                   </a>
                   <div className="flex items-center gap-3 text-muted-foreground font-body">
                     <MapPin size={20} className="text-primary" />
@@ -64,7 +64,7 @@ const Contact = () => {
                   Chat with us directly for quick quotes and inquiries.
                 </p>
                 <Button asChild className="font-body bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground">
-                  <a href="https://wa.me/254700000000" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/254704459870" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-2" size={18} />
                     Open WhatsApp
                   </a>

@@ -102,7 +102,7 @@ const Portfolio = () => {
                 <h2 className="font-display text-4xl text-foreground mt-1">{selected.title}</h2>
                 <p className="text-muted-foreground font-body mt-3">{selected.desc}</p>
                 <a
-                  href="https://wa.me/254700000000"
+                  href="https://wa.me/254704459870"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-6 font-body text-sm bg-primary text-primary-foreground px-6 py-2.5 rounded-md hover:bg-primary/90 transition-colors"
