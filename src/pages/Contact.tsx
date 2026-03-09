@@ -9,11 +9,49 @@ import { useToast } from "@/hooks/use-toast";
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message sent!", description: "We'll get back to you soon." });
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // You'll need to replace this
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+          subject: "New Contact Form Submission from Paintsurgeon Website",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({ 
+          title: "Message sent!", 
+          description: "We'll get back to you soon." 
+        });
+        setForm({ name: "", email: "", phone: "", message: "" });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      toast({ 
+        title: "Error", 
+        description: "Failed to send message. Please try WhatsApp instead.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,7 +81,7 @@ const Contact = () => {
                     <Phone size={20} className="text-primary" />
                     +254 704 459 870
                   </a>
-                  <a href="https://wa.me/254704459870" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-secondary transition-colors font-body">
+                  <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20get%20more%20information." target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-secondary transition-colors font-body">
                     <MessageCircle size={20} className="text-secondary" />
                     WhatsApp Us
                   </a>
@@ -64,7 +102,7 @@ const Contact = () => {
                   Chat with us directly for quick quotes and inquiries.
                 </p>
                 <Button asChild className="font-body bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground">
-                  <a href="https://wa.me/254704459870" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20get%20more%20information." target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-2" size={18} />
                     Open WhatsApp
                   </a>
@@ -110,9 +148,9 @@ const Contact = () => {
                 rows={5}
                 className="font-body bg-muted border-border text-foreground placeholder:text-muted-foreground resize-none"
               />
-              <Button type="submit" size="lg" className="w-full font-body bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button type="submit" size="lg" className="w-full font-body bg-primary hover:bg-primary/90 text-primary-foreground" disabled={isSubmitting}>
                 <Send className="mr-2" size={18} />
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </motion.form>
           </div>
