@@ -6,7 +6,7 @@ import SectionHeading from "@/components/SectionHeading";
 import heroBg from "@/assets/hero-bg.jpg";
 import portfolioHouse from "@/assets/portfolio-house.jpg";
 import portfolioMural from "@/assets/portfolio-mural.jpg";
-import portfolioLogos from "@/assets/portfolio-logos.jpg";
+import portfolioLogos from "@/assets/logos.png";
 import portfolioIllustration from "@/assets/portfolio-illustration.jpg";
 
 const services = [

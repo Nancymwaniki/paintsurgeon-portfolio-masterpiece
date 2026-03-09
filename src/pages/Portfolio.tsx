@@ -2,8 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import portfolioHouse from "@/assets/portfolio-house.jpg";
 import portfolioMural from "@/assets/portfolio-mural.jpg";
-import portfolioLogos from "@/assets/portfolio-logos.jpg";
+import portfolioLogos from "@/assets/logos.png";
 import portfolioIllustration from "@/assets/portfolio-illustration.jpg";
+import logo1 from "@/assets/logos/WhatsApp Image 2026-03-09 at 5.20.04 PM.jpeg";
+import logo2 from "@/assets/logos/WhatsApp Image 2026-03-09 at 5.21.08 PM.jpeg";
+import logo3 from "@/assets/logos/WhatsApp Image 2026-03-09 at 5.25.05 PM.jpeg";
+import logo4 from "@/assets/logos/WhatsApp Image 2026-03-09 at 5.25.41 PM.jpeg";
+import logo5 from "@/assets/logos/WhatsApp Image 2026-03-09 at 5.26.40 PM.jpeg";
+import logo6 from "@/assets/logos/WhatsApp Image 2026-03-09 at 5.27.32 PM.jpeg";
 
 const categories = ["All", "House Painting", "Murals", "Logos", "Illustrations"];
 
@@ -11,6 +17,12 @@ const projects = [
   { img: portfolioHouse, title: "Modern Living Room", category: "House Painting", desc: "Complete interior transformation with warm earth tones." },
   { img: portfolioMural, title: "Cultural Heritage Mural", category: "Murals", desc: "Large-scale African-inspired mural celebrating Kenyan culture." },
   { img: portfolioLogos, title: "Brand Identity Collection", category: "Logos", desc: "Logo designs for various businesses across Kenya." },
+  { img: logo1, title: "Logo Design 1", category: "Logos", desc: "Professional logo design showcasing creative branding solutions." },
+  { img: logo2, title: "Logo Design 2", category: "Logos", desc: "Custom logo design tailored to client brand identity." },
+  { img: logo3, title: "Logo Design 3", category: "Logos", desc: "Modern logo design with unique visual elements." },
+  { img: logo4, title: "Logo Design 4", category: "Logos", desc: "Creative branding solution for business identity." },
+  { img: logo5, title: "Logo Design 5", category: "Logos", desc: "Professional logo design with attention to detail." },
+  { img: logo6, title: "Logo Design 6", category: "Logos", desc: "Distinctive logo design for brand recognition." },
   { img: portfolioIllustration, title: "African Art Series", category: "Illustrations", desc: "Digital illustrations inspired by African heritage and tradition." },
   { img: portfolioHouse, title: "Residential Exterior", category: "House Painting", desc: "Full exterior repaint with weather-resistant premium paint." },
   { img: portfolioMural, title: "Office Feature Wall", category: "Murals", desc: "Bold artistic mural for a corporate office space." },
