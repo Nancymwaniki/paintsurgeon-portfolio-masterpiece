@@ -3,7 +3,7 @@ import { ArrowRight, Award, Clock, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import SectionHeading from "@/components/SectionHeading";
-import artistPortrait from "@/assets/artist-portrait.jpg";
+import artistPortrait from "@/assets/artist-portrait.jpeg";
 
 const stats = [
   { icon: Award, value: "500+", label: "Projects Completed" },
