@@ -8,6 +8,8 @@ import portfolioHouse from "@/assets/house.png";
 import portfolioMural from "@/assets/branding.jpeg";
 import portfolioLogos from "@/assets/logos.png";
 import portfolioIllustration from "@/assets/illustration.png";
+import ImageWithLoader from "@/components/ImageWithLoader";
+import BackToTop from "@/components/BackToTop";
 
 const services = [
   { icon: HomeIcon, title: "House Painting", desc: "Interior & exterior painting that transforms your space." },
@@ -35,7 +37,12 @@ const Index = () => {
       {/* Hero */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroBg} alt="Paintsurgeon hero artwork" className="w-full h-full object-cover" loading="eager" />
+          <ImageWithLoader
+            src={heroBg}
+            alt="Paintsurgeon hero artwork"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
           <div className="absolute inset-0 bg-background/70" />
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl">
@@ -114,7 +121,11 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group relative overflow-hidden rounded-lg aspect-[4/3]"
               >
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <ImageWithLoader
+                  src={p.img}
+                  alt={p.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <div>
                     <span className="text-primary font-body text-xs uppercase tracking-wider">{p.category}</span>

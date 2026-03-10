@@ -29,6 +29,9 @@ import house2 from "@/assets/houses/Screenshot 2026-03-09 224757.png";
 import house3 from "@/assets/houses/Screenshot 2026-03-09 224851.png";
 import house4 from "@/assets/houses/Screenshot 2026-03-09 225008.png";
 import house5 from "@/assets/houses/Screenshot 2026-03-09 225154.png";
+import ImageWithLoader from "@/components/ImageWithLoader";
+import ImageLightbox from "@/components/ImageLightbox";
+import BackToTop from "@/components/BackToTop";
 
 const categories = ["All", "House Painting", "Branding", "Logos", "Illustrations"];
 
@@ -66,9 +69,21 @@ const projects = [
 
 const Portfolio = () => {
   const [active, setActive] = useState("All");
-  const [selected, setSelected] = useState<typeof projects[0] | null>(null);
+  const [selected, setSelected] = useState<number | null>(null);
 
   const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
+
+  const handleNext = () => {
+    if (selected !== null) {
+      setSelected((selected + 1) % filtered.length);
+    }
+  };
+
+  const handlePrev = () => {
+    if (selected !== null) {
+      setSelected((selected - 1 + filtered.length) % filtered.length);
+    }
+  };
 
   return (
     <div className="min-h-screen pt-20">
@@ -110,10 +125,14 @@ const Portfolio = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  onClick={() => setSelected(p)}
+                  onClick={() => setSelected(i)}
                   className="group cursor-pointer relative overflow-hidden rounded-lg aspect-square"
                 >
-                  <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                  <ImageWithLoader
+                    src={p.img}
+                    alt={p.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
                     <div>
                       <span className="text-primary font-body text-xs uppercase tracking-wider">{p.category}</span>
@@ -127,41 +146,18 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Modal */}
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background/90 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setSelected(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-card border border-border rounded-lg overflow-hidden max-w-2xl w-full"
-            >
-              <img src={selected.img} alt={selected.title} className="w-full aspect-video object-cover" />
-              <div className="p-6">
-                <span className="text-primary font-body text-xs uppercase tracking-wider">{selected.category}</span>
-                <h2 className="font-display text-4xl text-foreground mt-1">{selected.title}</h2>
-                <p className="text-muted-foreground font-body mt-3">{selected.desc}</p>
-                <a
-                  href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'm%20interested%20in%20this%20project%20from%20your%20portfolio%20and%20would%20like%20to%20inquire%20about%20similar%20work."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-6 font-body text-sm bg-primary text-primary-foreground px-6 py-2.5 rounded-md hover:bg-primary/90 transition-colors"
-                >
-                  Inquire About This Project
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Lightbox */}
+      {selected !== null && (
+        <ImageLightbox
+          images={filtered}
+          currentIndex={selected}
+          onClose={() => setSelected(null)}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
+      )}
+
+      <BackToTop />
     </div>
   );
 };
