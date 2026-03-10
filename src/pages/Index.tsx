@@ -195,6 +195,8 @@ const Index = () => {
           </div>
         </motion.div>
       </section>
+
+      <BackToTop />
     </div>
   );
 };
