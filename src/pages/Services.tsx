@@ -22,35 +22,35 @@ const ServiceCard = ({ service, index }: { service: typeof physicalServices[0]; 
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
-    className="bg-muted rounded-lg p-8 border border-border hover:border-primary/50 transition-all group"
+    className="bg-muted rounded-lg p-5 sm:p-8 border border-border hover:border-primary/50 transition-all group"
   >
-    <service.icon size={40} className="text-primary mb-4 group-hover:text-secondary transition-colors" />
-    <h3 className="font-display text-3xl text-foreground mb-3">{service.title}</h3>
-    <p className="text-muted-foreground font-body text-sm leading-relaxed">{service.desc}</p>
+    <service.icon size={32} className="sm:w-10 sm:h-10 text-primary mb-3 sm:mb-4 group-hover:text-secondary transition-colors" />
+    <h3 className="font-display text-xl sm:text-3xl text-foreground mb-2 sm:mb-3">{service.title}</h3>
+    <p className="text-muted-foreground font-body text-xs sm:text-sm leading-relaxed">{service.desc}</p>
   </motion.div>
 );
 
 const Services = () => (
-  <div className="min-h-screen pt-20">
-    <section className="py-24">
+  <div className="min-h-screen pt-16 sm:pt-20">
+    <section className="py-12 sm:py-16 md:py-24">
       <div className="container mx-auto px-4">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-display text-6xl md:text-8xl text-center text-foreground mb-16"
+          className="font-display text-4xl sm:text-6xl md:text-8xl text-center text-foreground mb-10 sm:mb-16"
         >
           Our <span className="text-gradient">Services</span>
         </motion.h1>
 
         <SectionHeading title="Physical Services" subtitle="Hands-on painting and artistic craftsmanship" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-12 sm:mb-24">
           {physicalServices.map((s, i) => (
             <ServiceCard key={s.title} service={s} index={i} />
           ))}
         </div>
 
         <SectionHeading title="Digital Creative" subtitle="Design solutions for your brand and business" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {digitalServices.map((s, i) => (
             <ServiceCard key={s.title} service={s} index={i} />
           ))}
