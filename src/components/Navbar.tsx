@@ -32,7 +32,7 @@ const Navbar = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`font-body text-sm tracking-wide uppercase transition-colors hover:text-primary ${
+              className={`font-ui text-sm tracking-wide uppercase transition-colors hover:text-primary ${
                 location.pathname === item.path ? "text-primary" : "text-muted-foreground"
               }`}
             >
