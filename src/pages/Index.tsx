@@ -179,17 +179,17 @@ const Index = () => {
           transition={{ duration: 0.6 }}
           className="container mx-auto px-4"
         >
-          <h2 className="font-display text-5xl md:text-7xl text-foreground mb-4">
-            LET'S CREATE <span className="text-gradient">TOGETHER</span>
+          <h2 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-4">
+            Let's Create <span className="text-gradient">Together</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg mb-8 max-w-xl mx-auto">
             Ready to transform your space or brand? Get in touch today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="font-body bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild size="lg" className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
               <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20my%20project." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-body border-foreground/20 text-foreground hover:bg-foreground/10">
+            <Button asChild size="lg" variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10">
               <Link to="/contact">Contact Form</Link>
             </Button>
           </div>
