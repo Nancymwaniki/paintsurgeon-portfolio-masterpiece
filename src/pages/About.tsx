@@ -44,7 +44,7 @@ const About = () => (
               Our mission is simple: to deliver exceptional quality that speaks for itself. Every brush stroke, every pixel, every design is crafted with purpose.
             </p>
           </div>
-          <Button asChild size="lg" className="mt-8 font-body bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button asChild size="lg" className="mt-8 font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
             <Link to="/contact">Work With Us <ArrowRight className="ml-2" size={18} /></Link>
           </Button>
         </motion.div>
