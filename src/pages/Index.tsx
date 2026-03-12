@@ -35,7 +35,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[100svh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <ImageWithLoader
             src={heroBg}
@@ -45,12 +45,12 @@ const Index = () => {
           />
           <div className="absolute inset-0 bg-background/70" />
         </div>
-        <div className="relative z-10 text-center px-4 max-w-4xl">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-none text-foreground"
+            className="font-display text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold leading-none text-foreground"
           >
             Paint<span className="text-gradient">surgeon</span>
           </motion.h1>
@@ -58,7 +58,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-body text-lg md:text-xl text-muted-foreground mt-6 max-w-2xl mx-auto"
+            className="font-body text-sm sm:text-base md:text-xl text-muted-foreground mt-4 sm:mt-6 max-w-2xl mx-auto px-2"
           >
             Professional painting services & creative design solutions in Kenya.
             From walls to brands — we bring your vision to life.
@@ -67,12 +67,12 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
+            className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
           >
-            <Button asChild size="lg" className="font-ui text-base bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild size="lg" className="font-ui text-sm sm:text-base bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link to="/portfolio">View Our Work <ArrowRight className="ml-2" size={18} /></Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-ui text-base border-foreground/20 text-foreground hover:bg-foreground/10">
+            <Button asChild size="lg" variant="outline" className="font-ui text-sm sm:text-base border-foreground/20 text-foreground hover:bg-foreground/10">
               <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'd%20like%20to%20get%20a%20quote%20for%20your%20services." target="_blank" rel="noopener noreferrer">Get a Quote</a>
             </Button>
           </motion.div>
@@ -80,10 +80,10 @@ const Index = () => {
       </section>
 
       {/* Services */}
-      <section className="py-24 bg-card">
+      <section className="py-12 sm:py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <SectionHeading title="Our Services" subtitle="From physical painting to digital creativity" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {services.map((s, i) => (
               <motion.div
                 key={s.title}
@@ -91,15 +91,15 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-muted rounded-lg p-6 border border-border hover:border-primary/50 transition-colors group"
+                className="bg-muted rounded-lg p-5 sm:p-6 border border-border hover:border-primary/50 transition-colors group"
               >
-                <s.icon size={36} className="text-primary mb-4 group-hover:text-secondary transition-colors" />
-                <h3 className="font-display text-2xl text-foreground mb-2">{s.title}</h3>
-                <p className="text-muted-foreground font-body text-sm">{s.desc}</p>
+                <s.icon size={28} className="sm:w-9 sm:h-9 text-primary mb-3 sm:mb-4 group-hover:text-secondary transition-colors" />
+                <h3 className="font-display text-xl sm:text-2xl text-foreground mb-2">{s.title}</h3>
+                <p className="text-muted-foreground font-body text-xs sm:text-sm">{s.desc}</p>
               </motion.div>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-8 sm:mt-10">
             <Button asChild variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10">
               <Link to="/services">All Services <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
@@ -108,10 +108,10 @@ const Index = () => {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-24">
+      <section className="py-12 sm:py-16 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeading title="Featured Work" subtitle="A glimpse into our creative portfolio" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {projects.map((p, i) => (
               <motion.div
                 key={p.title}
@@ -126,16 +126,16 @@ const Index = () => {
                   alt={p.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
                   <div>
                     <span className="text-primary font-body text-xs uppercase tracking-wider">{p.category}</span>
-                    <h3 className="font-display text-3xl text-foreground">{p.title}</h3>
+                    <h3 className="font-display text-xl sm:text-3xl text-foreground">{p.title}</h3>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-8 sm:mt-10">
             <Button asChild className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link to="/portfolio">View Full Portfolio <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
@@ -144,10 +144,10 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-card">
+      <section className="py-12 sm:py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <SectionHeading title="What Clients Say" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.name}
@@ -155,15 +155,15 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-muted rounded-lg p-6 border border-border"
+                className="bg-muted rounded-lg p-5 sm:p-6 border border-border"
               >
                 <div className="flex gap-1 mb-3">
                   {Array.from({ length: t.rating }).map((_, j) => (
-                    <Star key={j} size={16} className="fill-secondary text-secondary" />
+                    <Star key={j} size={14} className="sm:w-4 sm:h-4 fill-secondary text-secondary" />
                   ))}
                 </div>
-                <p className="text-foreground font-body text-sm leading-relaxed mb-4">"{t.text}"</p>
-                <p className="text-primary font-body text-sm font-semibold">— {t.name}</p>
+                <p className="text-foreground font-body text-xs sm:text-sm leading-relaxed mb-4">"{t.text}"</p>
+                <p className="text-primary font-body text-xs sm:text-sm font-semibold">— {t.name}</p>
               </motion.div>
             ))}
           </div>
@@ -171,7 +171,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center">
+      <section className="py-12 sm:py-16 md:py-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -179,13 +179,13 @@ const Index = () => {
           transition={{ duration: 0.6 }}
           className="container mx-auto px-4"
         >
-          <h2 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold text-foreground mb-4">
             Let's Create <span className="text-gradient">Together</span>
           </h2>
-          <p className="text-muted-foreground font-body text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-muted-foreground font-body text-sm sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto">
             Ready to transform your space or brand? Get in touch today.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
             <Button asChild size="lg" className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
               <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20my%20project." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
             </Button>
