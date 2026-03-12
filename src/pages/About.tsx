@@ -79,7 +79,7 @@ const About = () => (
           {["House Painting", "Interior Design", "Exterior Painting", "Clothes Branding", "Logo Design", "Branding", "Graphic Design", "Illustration", "Custom Drawings", "Color Consultation"].map((skill) => (
             <span
               key={skill}
-              className="font-body text-sm px-4 py-2 rounded-full border border-border bg-muted text-foreground hover:border-primary/50 transition-colors"
+              className="font-ui text-sm px-4 py-2 rounded-full border border-border bg-muted text-foreground hover:border-primary/50 transition-colors"
             >
               {skill}
             </span>

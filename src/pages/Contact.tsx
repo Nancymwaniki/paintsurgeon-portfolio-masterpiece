@@ -148,7 +148,7 @@ const Contact = () => {
                 rows={5}
                 className="font-body bg-muted border-border text-foreground placeholder:text-muted-foreground resize-none"
               />
-              <Button type="submit" size="lg" className="w-full font-body bg-primary hover:bg-primary/90 text-primary-foreground" disabled={isSubmitting}>
+              <Button type="submit" size="lg" className="w-full font-ui bg-primary hover:bg-primary/90 text-primary-foreground" disabled={isSubmitting}>
                 <Send className="mr-2" size={18} />
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>

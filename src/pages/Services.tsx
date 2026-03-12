@@ -49,7 +49,7 @@ const Services = () => (
           ))}
         </div>
 
-        <SectionHeading title="DIGITAL CREATIVE" subtitle="Design solutions for your brand and business" />
+        <SectionHeading title="Digital Creative" subtitle="Design solutions for your brand and business" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {digitalServices.map((s, i) => (
             <ServiceCard key={s.title} service={s} index={i} />

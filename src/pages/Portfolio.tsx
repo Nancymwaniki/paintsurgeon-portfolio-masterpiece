@@ -77,7 +77,7 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
                     <div>
-                      <span className="text-primary font-body text-xs uppercase tracking-wider">{p.category}</span>
+                      <span className="text-primary font-ui text-xs uppercase tracking-wider">{p.category}</span>
                       <h3 className="font-display text-2xl text-foreground">{p.title}</h3>
                     </div>
                   </div>
