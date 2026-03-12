@@ -75,7 +75,7 @@ const Portfolio = () => {
                     alt={p.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity flex items-end p-3 sm:p-5">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 sm:p-5">
                     <div>
                       <span className="text-primary font-ui text-[10px] sm:text-xs uppercase tracking-wider">{p.category}</span>
                       <h3 className="font-display text-sm sm:text-2xl text-foreground">{p.title}</h3>
