@@ -136,7 +136,7 @@ const Index = () => {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Button asChild className="font-body bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link to="/portfolio">View Full Portfolio <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
           </div>
