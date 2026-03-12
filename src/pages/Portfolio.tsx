@@ -34,9 +34,9 @@ const Portfolio = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-display text-6xl md:text-8xl text-center text-foreground mb-12"
+            className="font-display text-6xl md:text-8xl font-bold text-center text-foreground mb-12"
           >
-            PORT<span className="text-gradient">FOLIO</span>
+            Port<span className="text-gradient">folio</span>
           </motion.h1>
 
           {/* Filters */}
@@ -45,7 +45,7 @@ const Portfolio = () => {
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`font-body text-sm px-5 py-2 rounded-full border transition-all ${
+                className={`font-ui text-sm px-5 py-2 rounded-full border transition-all ${
                   active === cat
                     ? "bg-primary border-primary text-primary-foreground"
                     : "border-border text-muted-foreground hover:border-foreground/30"
@@ -77,7 +77,7 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5">
                     <div>
-                      <span className="text-primary font-body text-xs uppercase tracking-wider">{p.category}</span>
+                      <span className="text-primary font-ui text-xs uppercase tracking-wider">{p.category}</span>
                       <h3 className="font-display text-2xl text-foreground">{p.title}</h3>
                     </div>
                   </div>

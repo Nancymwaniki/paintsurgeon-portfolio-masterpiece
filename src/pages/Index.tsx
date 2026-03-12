@@ -50,9 +50,9 @@ const Index = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-display text-6xl md:text-8xl lg:text-9xl leading-none text-foreground"
+            className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-none text-foreground"
           >
-            PAINT<span className="text-gradient">SURGEON</span>
+            Paint<span className="text-gradient">surgeon</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -69,10 +69,10 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button asChild size="lg" className="font-body text-base bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild size="lg" className="font-ui text-base bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link to="/portfolio">View Our Work <ArrowRight className="ml-2" size={18} /></Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-body text-base border-foreground/20 text-foreground hover:bg-foreground/10">
+            <Button asChild size="lg" variant="outline" className="font-ui text-base border-foreground/20 text-foreground hover:bg-foreground/10">
               <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'd%20like%20to%20get%20a%20quote%20for%20your%20services." target="_blank" rel="noopener noreferrer">Get a Quote</a>
             </Button>
           </motion.div>
@@ -82,7 +82,7 @@ const Index = () => {
       {/* Services */}
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4">
-          <SectionHeading title="OUR SERVICES" subtitle="From physical painting to digital creativity" />
+          <SectionHeading title="Our Services" subtitle="From physical painting to digital creativity" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((s, i) => (
               <motion.div
@@ -100,7 +100,7 @@ const Index = () => {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Button asChild variant="outline" className="font-body border-foreground/20 text-foreground hover:bg-foreground/10">
+            <Button asChild variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10">
               <Link to="/services">All Services <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
           </div>
@@ -110,7 +110,7 @@ const Index = () => {
       {/* Featured Projects */}
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <SectionHeading title="FEATURED WORK" subtitle="A glimpse into our creative portfolio" />
+          <SectionHeading title="Featured Work" subtitle="A glimpse into our creative portfolio" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((p, i) => (
               <motion.div
@@ -136,7 +136,7 @@ const Index = () => {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Button asChild className="font-body bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link to="/portfolio">View Full Portfolio <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
           </div>
@@ -146,7 +146,7 @@ const Index = () => {
       {/* Testimonials */}
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4">
-          <SectionHeading title="WHAT CLIENTS SAY" />
+          <SectionHeading title="What Clients Say" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <motion.div
@@ -179,17 +179,17 @@ const Index = () => {
           transition={{ duration: 0.6 }}
           className="container mx-auto px-4"
         >
-          <h2 className="font-display text-5xl md:text-7xl text-foreground mb-4">
-            LET'S CREATE <span className="text-gradient">TOGETHER</span>
+          <h2 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-4">
+            Let's Create <span className="text-gradient">Together</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg mb-8 max-w-xl mx-auto">
             Ready to transform your space or brand? Get in touch today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="font-body bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild size="lg" className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
               <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20my%20project." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-body border-foreground/20 text-foreground hover:bg-foreground/10">
+            <Button asChild size="lg" variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10">
               <Link to="/contact">Contact Form</Link>
             </Button>
           </div>

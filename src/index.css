@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -35,8 +35,9 @@
     --sidebar-border: 0 0% 15%;
     --sidebar-ring: 0 85% 55%;
 
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
+    --font-display: 'DM Sans', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --font-ui: 'Lato', sans-serif;
 
     --gradient-brand: linear-gradient(135deg, hsl(0 85% 55%), hsl(45 95% 55%), hsl(200 75% 60%));
     --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 8%) 100%);
@@ -56,7 +57,8 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    letter-spacing: 0.02em;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
 }
 

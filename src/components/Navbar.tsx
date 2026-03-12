@@ -21,8 +21,8 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="PaintSurgeon Logo" className="h-12 w-auto" />
-          <span className="font-display text-2xl tracking-wider text-gradient">
-            PAINTSURGEON
+          <span className="font-display text-2xl font-bold text-gradient">
+            Paintsurgeon
           </span>
         </Link>
 
@@ -32,7 +32,7 @@ const Navbar = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`font-body text-sm tracking-wide uppercase transition-colors hover:text-primary ${
+              className={`font-ui text-sm tracking-wide uppercase transition-colors hover:text-primary ${
                 location.pathname === item.path ? "text-primary" : "text-muted-foreground"
               }`}
             >
@@ -62,7 +62,7 @@ const Navbar = () => {
                   key={item.path}
                   to={item.path}
                   onClick={() => setOpen(false)}
-                  className={`font-body text-lg uppercase tracking-wide transition-colors ${
+                  className={`font-ui text-lg uppercase tracking-wide transition-colors ${
                     location.pathname === item.path ? "text-primary" : "text-muted-foreground"
                   }`}
                 >

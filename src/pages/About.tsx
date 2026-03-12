@@ -30,8 +30,8 @@ const About = () => (
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="font-display text-6xl md:text-7xl text-foreground mb-6">
-            THE <span className="text-gradient">ARTIST</span>
+          <h1 className="font-display text-6xl md:text-7xl font-bold text-foreground mb-6">
+            The <span className="text-gradient">Artist</span>
           </h1>
           <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
             <p>
@@ -44,7 +44,7 @@ const About = () => (
               Our mission is simple: to deliver exceptional quality that speaks for itself. Every brush stroke, every pixel, every design is crafted with purpose.
             </p>
           </div>
-          <Button asChild size="lg" className="mt-8 font-body bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button asChild size="lg" className="mt-8 font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
             <Link to="/contact">Work With Us <ArrowRight className="ml-2" size={18} /></Link>
           </Button>
         </motion.div>
@@ -74,12 +74,12 @@ const About = () => (
 
     <section className="py-24">
       <div className="container mx-auto px-4 text-center">
-        <SectionHeading title="SKILLS & EXPERTISE" />
+        <SectionHeading title="Skills & Expertise" />
         <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
           {["House Painting", "Interior Design", "Exterior Painting", "Clothes Branding", "Logo Design", "Branding", "Graphic Design", "Illustration", "Custom Drawings", "Color Consultation"].map((skill) => (
             <span
               key={skill}
-              className="font-body text-sm px-4 py-2 rounded-full border border-border bg-muted text-foreground hover:border-primary/50 transition-colors"
+              className="font-ui text-sm px-4 py-2 rounded-full border border-border bg-muted text-foreground hover:border-primary/50 transition-colors"
             >
               {skill}
             </span>

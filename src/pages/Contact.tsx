@@ -63,7 +63,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-6xl md:text-8xl text-center text-foreground mb-16"
           >
-            GET IN <span className="text-gradient">TOUCH</span>
+            Get In <span className="text-gradient">Touch</span>
           </motion.h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -75,7 +75,7 @@ const Contact = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="font-display text-3xl text-foreground mb-6">CONTACT INFO</h2>
+                <h2 className="font-display text-3xl font-semibold text-foreground mb-6">Contact Info</h2>
                 <div className="space-y-4">
                   <a href="tel:+254704459870" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-body">
                     <Phone size={20} className="text-primary" />
@@ -97,11 +97,11 @@ const Contact = () => {
               </div>
 
               <div className="bg-muted rounded-lg p-6 border border-border">
-                <h3 className="font-display text-2xl text-foreground mb-2">PREFER WHATSAPP?</h3>
+                <h3 className="font-display text-2xl font-semibold text-foreground mb-2">Prefer WhatsApp?</h3>
                 <p className="text-muted-foreground font-body text-sm mb-4">
                   Chat with us directly for quick quotes and inquiries.
                 </p>
-                <Button asChild className="font-body bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground">
+                <Button asChild className="font-ui bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground">
                   <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20get%20more%20information." target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-2" size={18} />
                     Open WhatsApp
@@ -118,7 +118,7 @@ const Contact = () => {
               onSubmit={handleSubmit}
               className="bg-card border border-border rounded-lg p-8 space-y-5"
             >
-              <h2 className="font-display text-3xl text-foreground mb-2">SEND A MESSAGE</h2>
+              <h2 className="font-display text-3xl font-semibold text-foreground mb-2">Send a Message</h2>
               <Input
                 placeholder="Your Name"
                 value={form.name}
@@ -148,7 +148,7 @@ const Contact = () => {
                 rows={5}
                 className="font-body bg-muted border-border text-foreground placeholder:text-muted-foreground resize-none"
               />
-              <Button type="submit" size="lg" className="w-full font-body bg-primary hover:bg-primary/90 text-primary-foreground" disabled={isSubmitting}>
+              <Button type="submit" size="lg" className="w-full font-ui bg-primary hover:bg-primary/90 text-primary-foreground" disabled={isSubmitting}>
                 <Send className="mr-2" size={18} />
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
