@@ -146,7 +146,7 @@ const Index = () => {
       {/* Testimonials */}
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4">
-          <SectionHeading title="WHAT CLIENTS SAY" />
+          <SectionHeading title="What Clients Say" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <motion.div
