@@ -25,7 +25,7 @@ const Footer = () => (
         </div>
       </div>
       <div>
-        <h4 className="font-display text-xl text-foreground mb-4">CONTACT</h4>
+        <h4 className="font-display text-xl font-semibold text-foreground mb-4">Contact</h4>
         <div className="flex flex-col gap-3 text-sm text-muted-foreground font-body">
           <div className="flex items-center gap-2">
             <Phone size={16} className="text-primary" />
