@@ -11,7 +11,7 @@ const Footer = () => (
         </p>
       </div>
       <div>
-        <h4 className="font-display text-xl text-foreground mb-4">QUICK LINKS</h4>
+        <h4 className="font-display text-xl font-semibold text-foreground mb-4">Quick Links</h4>
         <div className="flex flex-col gap-2">
           {["About", "Services", "Portfolio", "Contact"].map((item) => (
             <Link
