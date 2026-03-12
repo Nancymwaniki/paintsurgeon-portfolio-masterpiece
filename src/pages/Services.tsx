@@ -39,7 +39,7 @@ const Services = () => (
           animate={{ opacity: 1, y: 0 }}
           className="font-display text-6xl md:text-8xl text-center text-foreground mb-16"
         >
-          OUR <span className="text-gradient">SERVICES</span>
+          Our <span className="text-gradient">Services</span>
         </motion.h1>
 
         <SectionHeading title="PHYSICAL SERVICES" subtitle="Hands-on painting and artistic craftsmanship" />
