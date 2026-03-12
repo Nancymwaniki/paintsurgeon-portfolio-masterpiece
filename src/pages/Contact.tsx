@@ -101,7 +101,7 @@ const Contact = () => {
                 <p className="text-muted-foreground font-body text-sm mb-4">
                   Chat with us directly for quick quotes and inquiries.
                 </p>
-                <Button asChild className="font-body bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground">
+                <Button asChild className="font-ui bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-primary-foreground">
                   <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20get%20more%20information." target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-2" size={18} />
                     Open WhatsApp
