@@ -97,7 +97,7 @@ const Contact = () => {
               </div>
 
               <div className="bg-muted rounded-lg p-6 border border-border">
-                <h3 className="font-display text-2xl text-foreground mb-2">PREFER WHATSAPP?</h3>
+                <h3 className="font-display text-2xl font-semibold text-foreground mb-2">Prefer WhatsApp?</h3>
                 <p className="text-muted-foreground font-body text-sm mb-4">
                   Chat with us directly for quick quotes and inquiries.
                 </p>
