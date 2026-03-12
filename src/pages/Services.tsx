@@ -42,7 +42,7 @@ const Services = () => (
           Our <span className="text-gradient">Services</span>
         </motion.h1>
 
-        <SectionHeading title="PHYSICAL SERVICES" subtitle="Hands-on painting and artistic craftsmanship" />
+        <SectionHeading title="Physical Services" subtitle="Hands-on painting and artistic craftsmanship" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
           {physicalServices.map((s, i) => (
             <ServiceCard key={s.title} service={s} index={i} />
