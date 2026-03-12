@@ -62,7 +62,7 @@ const Navbar = () => {
                   key={item.path}
                   to={item.path}
                   onClick={() => setOpen(false)}
-                  className={`font-body text-lg uppercase tracking-wide transition-colors ${
+                  className={`font-ui text-lg uppercase tracking-wide transition-colors ${
                     location.pathname === item.path ? "text-primary" : "text-muted-foreground"
                   }`}
                 >
