@@ -82,7 +82,7 @@ const Index = () => {
       {/* Services */}
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4">
-          <SectionHeading title="OUR SERVICES" subtitle="From physical painting to digital creativity" />
+          <SectionHeading title="Our Services" subtitle="From physical painting to digital creativity" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((s, i) => (
               <motion.div
