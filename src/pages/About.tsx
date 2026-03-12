@@ -30,8 +30,8 @@ const About = () => (
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="font-display text-6xl md:text-7xl text-foreground mb-6">
-            THE <span className="text-gradient">ARTIST</span>
+          <h1 className="font-display text-6xl md:text-7xl font-bold text-foreground mb-6">
+            The <span className="text-gradient">Artist</span>
           </h1>
           <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
             <p>
