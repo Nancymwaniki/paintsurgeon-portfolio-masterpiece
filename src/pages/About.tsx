@@ -74,7 +74,7 @@ const About = () => (
 
     <section className="py-24">
       <div className="container mx-auto px-4 text-center">
-        <SectionHeading title="SKILLS & EXPERTISE" />
+        <SectionHeading title="Skills & Expertise" />
         <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
           {["House Painting", "Interior Design", "Exterior Painting", "Clothes Branding", "Logo Design", "Branding", "Graphic Design", "Illustration", "Custom Drawings", "Color Consultation"].map((skill) => (
             <span
