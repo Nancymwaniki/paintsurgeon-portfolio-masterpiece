@@ -21,8 +21,8 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="PaintSurgeon Logo" className="h-12 w-auto" />
-          <span className="font-display text-2xl tracking-wider text-gradient">
-            PAINTSURGEON
+          <span className="font-display text-2xl font-bold text-gradient">
+            Paintsurgeon
           </span>
         </Link>
 
