@@ -35,8 +35,9 @@
     --sidebar-border: 0 0% 15%;
     --sidebar-ring: 0 85% 55%;
 
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
+    --font-display: 'DM Sans', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --font-ui: 'Lato', sans-serif;
 
     --gradient-brand: linear-gradient(135deg, hsl(0 85% 55%), hsl(45 95% 55%), hsl(200 75% 60%));
     --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 8%) 100%);
