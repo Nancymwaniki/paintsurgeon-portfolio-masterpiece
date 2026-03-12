@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className="bg-card border-t border-border py-12">
     <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
       <div>
-        <h3 className="font-display text-3xl text-gradient mb-4">PAINTSURGEON</h3>
+        <h3 className="font-display text-3xl font-bold text-gradient mb-4">Paintsurgeon</h3>
         <p className="text-muted-foreground font-body text-sm leading-relaxed">
           Professional painting services and creative design solutions based in Kenya.
         </p>
