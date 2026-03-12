@@ -63,7 +63,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-6xl md:text-8xl text-center text-foreground mb-16"
           >
-            GET IN <span className="text-gradient">TOUCH</span>
+            Get In <span className="text-gradient">Touch</span>
           </motion.h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
