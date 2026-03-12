@@ -100,7 +100,7 @@ const Index = () => {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Button asChild variant="outline" className="font-body border-foreground/20 text-foreground hover:bg-foreground/10">
+            <Button asChild variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10">
               <Link to="/services">All Services <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
           </div>
