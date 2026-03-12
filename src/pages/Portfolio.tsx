@@ -45,7 +45,7 @@ const Portfolio = () => {
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`font-body text-sm px-5 py-2 rounded-full border transition-all ${
+                className={`font-ui text-sm px-5 py-2 rounded-full border transition-all ${
                   active === cat
                     ? "bg-primary border-primary text-primary-foreground"
                     : "border-border text-muted-foreground hover:border-foreground/30"
