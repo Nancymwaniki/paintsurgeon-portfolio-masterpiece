@@ -75,7 +75,7 @@ const Contact = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="font-display text-3xl text-foreground mb-6">CONTACT INFO</h2>
+                <h2 className="font-display text-3xl font-semibold text-foreground mb-6">Contact Info</h2>
                 <div className="space-y-4">
                   <a href="tel:+254704459870" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-body">
                     <Phone size={20} className="text-primary" />
