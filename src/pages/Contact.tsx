@@ -118,7 +118,7 @@ const Contact = () => {
               onSubmit={handleSubmit}
               className="bg-card border border-border rounded-lg p-8 space-y-5"
             >
-              <h2 className="font-display text-3xl text-foreground mb-2">SEND A MESSAGE</h2>
+              <h2 className="font-display text-3xl font-semibold text-foreground mb-2">Send a Message</h2>
               <Input
                 placeholder="Your Name"
                 value={form.name}
