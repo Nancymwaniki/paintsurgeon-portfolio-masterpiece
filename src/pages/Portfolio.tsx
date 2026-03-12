@@ -34,9 +34,9 @@ const Portfolio = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-display text-6xl md:text-8xl text-center text-foreground mb-12"
+            className="font-display text-6xl md:text-8xl font-bold text-center text-foreground mb-12"
           >
-            PORT<span className="text-gradient">FOLIO</span>
+            Port<span className="text-gradient">folio</span>
           </motion.h1>
 
           {/* Filters */}
