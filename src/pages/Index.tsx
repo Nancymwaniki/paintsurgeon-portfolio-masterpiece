@@ -69,10 +69,10 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button asChild size="lg" className="font-body text-base bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild size="lg" className="font-ui text-base bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link to="/portfolio">View Our Work <ArrowRight className="ml-2" size={18} /></Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-body text-base border-foreground/20 text-foreground hover:bg-foreground/10">
+            <Button asChild size="lg" variant="outline" className="font-ui text-base border-foreground/20 text-foreground hover:bg-foreground/10">
               <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'd%20like%20to%20get%20a%20quote%20for%20your%20services." target="_blank" rel="noopener noreferrer">Get a Quote</a>
             </Button>
           </motion.div>
