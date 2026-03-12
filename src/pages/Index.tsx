@@ -50,9 +50,9 @@ const Index = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-display text-6xl md:text-8xl lg:text-9xl leading-none text-foreground"
+            className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-none text-foreground"
           >
-            PAINT<span className="text-gradient">SURGEON</span>
+            Paint<span className="text-gradient">surgeon</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
