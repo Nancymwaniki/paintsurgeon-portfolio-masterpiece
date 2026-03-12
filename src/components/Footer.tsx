@@ -42,7 +42,7 @@ const Footer = () => (
         </div>
       </div>
       <div>
-        <h4 className="font-display text-xl text-foreground mb-4">FOLLOW US</h4>
+        <h4 className="font-display text-xl font-semibold text-foreground mb-4">Follow Us</h4>
         <div className="flex flex-col gap-3">
           <a
             href="https://www.tiktok.com/@paintsurgeon"
