@@ -4,25 +4,15 @@ import { ArrowRight, Paintbrush, Palette, PenTool, Home as HomeIcon, Star } from
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
 import heroBg from "@/assets/hero-bg.jpg";
-import portfolioHouse from "@/assets/house.png";
-import portfolioMural from "@/assets/branding.jpeg";
-import portfolioLogos from "@/assets/logos.png";
-import portfolioIllustration from "@/assets/illustration.png";
 import ImageWithLoader from "@/components/ImageWithLoader";
 import BackToTop from "@/components/BackToTop";
+import { useImages } from "@/hooks/useImages";
 
 const services = [
   { icon: HomeIcon, title: "House Painting", desc: "Interior & exterior painting that transforms your space." },
   { icon: Paintbrush, title: "Branding", desc: "Custom branding for clothes, merchandise, and businesses." },
   { icon: Palette, title: "Branding & Logos", desc: "Creative brand identity and logo design." },
   { icon: PenTool, title: "Illustrations", desc: "Custom illustrations and graphic design." },
-];
-
-const projects = [
-  { img: portfolioHouse, title: "Modern Interior", category: "House Painting" },
-  { img: portfolioMural, title: "Branded Apparel", category: "Branding" },
-  { img: portfolioLogos, title: "Brand Collection", category: "Logo Design" },
-  { img: portfolioIllustration, title: "African Art Series", category: "Illustration" },
 ];
 
 const testimonials = [
@@ -32,6 +22,8 @@ const testimonials = [
 ];
 
 const Index = () => {
+  const { data: featuredImages = [] } = useImages({ featured: true, limit: 4 });
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -54,15 +46,16 @@ const Index = () => {
           >
             Paint<span className="text-gradient">surgeon</span>
           </motion.h1>
+          
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-body text-sm sm:text-base md:text-xl text-destructive-foreground mt-4 sm:mt-6 max-w-2xl mx-auto px-2"
+            className="font-body text-sm sm:text-base md:text-xl text-destructive-foreground max-w-2xl mx-auto px-2 mt-4 sm:mt-6"
           >
-            Professional painting services & creative design solutions in Kenya.
-            From walls to brands — we bring your vision to life.
+            Professional painting services & creative design solutions in Kenya. From walls to brands — we bring your vision to life.
           </motion.p>
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,9 +73,18 @@ const Index = () => {
       </section>
 
       {/* Services */}
-      <section className="py-12 sm:py-16 md:py-24 bg-card">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-24 bg-card relative overflow-hidden">
+        {/* Decorative background */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative">
           <SectionHeading title="Our Services" subtitle="From physical painting to digital creativity" />
+          
+          <p className="text-center text-muted-foreground font-body text-sm sm:text-base mb-8 max-w-3xl mx-auto">
+            We specialize in transforming spaces and creating memorable brands. Whether it's painting your home or designing your company's visual identity, we bring expertise and creativity to every project.
+          </p>
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {services.map((s, i) => (
               <motion.div
@@ -91,16 +93,18 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-muted rounded-lg p-5 sm:p-6 border border-border hover:border-primary/50 transition-colors group"
+                className="bg-gradient-to-br from-muted via-muted to-muted/50 rounded-xl p-5 sm:p-6 border border-border hover:border-primary/50 transition-all hover:scale-105 hover:shadow-xl group"
               >
-                <s.icon size={28} className="sm:w-9 sm:h-9 text-primary mb-3 sm:mb-4 group-hover:text-secondary transition-colors" />
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <s.icon size={28} className="text-primary group-hover:text-secondary transition-colors" />
+                </div>
                 <h3 className="font-display text-xl sm:text-2xl text-foreground mb-2">{s.title}</h3>
                 <p className="text-muted-foreground font-body text-xs sm:text-sm">{s.desc}</p>
               </motion.div>
             ))}
           </div>
           <div className="text-center mt-8 sm:mt-10">
-            <Button asChild variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10">
+            <Button asChild variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10 shadow-lg hover:shadow-xl transition-all hover:scale-105">
               <Link to="/services">All Services <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
           </div>
@@ -108,35 +112,57 @@ const Index = () => {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-12 sm:py-16 md:py-24">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden">
+        {/* Decorative background */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative">
           <SectionHeading title="Featured Work" subtitle="A glimpse into our creative portfolio" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            {projects.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-lg aspect-[4/3]"
-              >
-                <ImageWithLoader
-                  src={p.img}
-                  alt={p.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
-                  <div>
-                    <span className="text-primary font-body text-xs uppercase tracking-wider">{p.category}</span>
-                    <h3 className="font-display text-xl sm:text-3xl text-foreground">{p.title}</h3>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            {featuredImages.length > 0 ? (
+              featuredImages.map((image, i) => {
+                const imageUrl = image.url?.startsWith('http') 
+                  ? image.url 
+                  : `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:3000'}${image.url}`;
+                
+                return (
+                  <motion.div
+                    key={image.id}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl hover:shadow-2xl transition-shadow"
+                  >
+                    <ImageWithLoader
+                      src={imageUrl}
+                      alt={image.title || 'Featured work'}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
+                      <div>
+                        {image.category && (
+                          <span className="text-primary font-body text-xs uppercase tracking-wider">
+                            {image.category.name}
+                          </span>
+                        )}
+                        {image.title && (
+                          <h3 className="font-display text-xl sm:text-3xl text-foreground">{image.title}</h3>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })
+            ) : (
+              <div className="col-span-full text-center py-12 text-muted-foreground">
+                <p>No featured images yet. Mark images as featured in the admin dashboard.</p>
+              </div>
+            )}
           </div>
           <div className="text-center mt-8 sm:mt-10">
-            <Button asChild className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-105">
               <Link to="/portfolio">View Full Portfolio <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
           </div>
@@ -144,8 +170,11 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-12 sm:py-16 md:py-24 bg-card">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 md:py-24 bg-card relative overflow-hidden">
+        {/* Decorative background */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-4 relative">
           <SectionHeading title="What Clients Say" />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {testimonials.map((t, i) => (
@@ -155,7 +184,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-muted rounded-lg p-5 sm:p-6 border border-border"
+                className="bg-gradient-to-br from-muted via-muted to-muted/50 rounded-xl p-5 sm:p-6 border border-border hover:border-primary/30 transition-all hover:shadow-lg"
               >
                 <div className="flex gap-1 mb-3">
                   {Array.from({ length: t.rating }).map((_, j) => (
@@ -171,13 +200,17 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-12 sm:py-16 md:py-24 text-center">
+      <section className="py-12 sm:py-16 md:py-24 text-center relative overflow-hidden">
+        {/* Decorative background */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="container mx-auto px-4"
+          className="container mx-auto px-4 relative"
         >
           <h2 className="font-display text-3xl sm:text-5xl md:text-7xl font-bold text-foreground mb-4">
             Let's Create <span className="text-gradient">Together</span>
@@ -186,10 +219,10 @@ const Index = () => {
             Ready to transform your space or brand? Get in touch today.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
-            <Button asChild size="lg" className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild size="lg" className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-105">
               <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20my%20project." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10">
+            <Button asChild size="lg" variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10 shadow-lg hover:shadow-xl transition-all hover:scale-105">
               <Link to="/contact">Contact Form</Link>
             </Button>
           </div>
