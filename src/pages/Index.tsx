@@ -22,7 +22,7 @@ const testimonials = [
 ];
 
 const Index = () => {
-  const { data: featuredImages = [] } = useImages({ featured: true, limit: 4 });
+  const { data: featuredImages } = useImages({ featured: true, limit: 4 });
 
   return (
     <div className="min-h-screen">
@@ -120,7 +120,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative">
           <SectionHeading title="Featured Work" subtitle="A glimpse into our creative portfolio" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            {featuredImages.length > 0 ? (
+            {featuredImages && featuredImages.length > 0 ? (
               featuredImages.map((image, i) => {
                 const imageUrl = image.url?.startsWith('http') 
                   ? image.url 

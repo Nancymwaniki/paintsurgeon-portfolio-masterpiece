@@ -17,13 +17,13 @@ const stats = [
 
 const About = () => {
   const { isAuthenticated } = useAuth();
-  const { data: images = [] } = useImages({ artistPortrait: true });
-  const { data: categories = [] } = useCategories();
+  const { data: images } = useImages({ artistPortrait: true });
+  const { data: categories } = useCategories();
   const { mutate: deleteImage } = useDeleteImage();
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   
   // Use first artist portrait image
-  const artistImage = images[0];
+  const artistImage = images?.[0];
   const artistImageUrl = artistImage 
     ? (artistImage.url?.startsWith('http') 
         ? artistImage.url 
@@ -162,7 +162,7 @@ const About = () => {
       <ArtistPortraitUploadModal
         isOpen={isUploadModalOpen}
         onClose={() => setIsUploadModalOpen(false)}
-        categories={categories}
+        categories={categories || []}
       />
     </div>
   );

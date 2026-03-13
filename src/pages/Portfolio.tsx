@@ -21,16 +21,16 @@ const Portfolio = () => {
   const [imageToEdit, setImageToEdit] = useState<ImageResponseDto | null>(null);
 
   // Fetch images and categories (exclude artist portraits)
-  const { data: images = [], isLoading: imagesLoading, error: imagesError } = useImages({
+  const { data: images, isLoading: imagesLoading, error: imagesError } = useImages({
     categoryId: activeCategory || undefined,
     artistPortrait: false, // Explicitly exclude artist portraits
   });
-  const { data: categories = [], isLoading: categoriesLoading } = useCategories();
+  const { data: categories, isLoading: categoriesLoading } = useCategories();
 
   // Filter images by category
   const filteredImages = activeCategory
-    ? images.filter((img) => img.categoryId === activeCategory)
-    : images;
+    ? (images || []).filter((img) => img.categoryId === activeCategory)
+    : (images || []);
 
   // Sort images by order
   const sortedImages = [...filteredImages].sort((a, b) => a.order - b.order);
@@ -99,7 +99,7 @@ const Portfolio = () => {
           </div>
 
           {/* Category Filters */}
-          {!categoriesLoading && (
+          {!categoriesLoading && categories && (
             <CategoryFilter
               categories={categories}
               activeCategory={activeCategory}
@@ -172,7 +172,7 @@ const Portfolio = () => {
       <ImageUploadModal
         isOpen={isUploadModalOpen}
         onClose={() => setIsUploadModalOpen(false)}
-        categories={categories}
+        categories={categories || []}
       />
 
       {/* Edit Modal */}
@@ -183,7 +183,7 @@ const Portfolio = () => {
           setImageToEdit(null);
         }}
         image={imageToEdit}
-        categories={categories}
+        categories={categories || []}
       />
 
       <BackToTop />
