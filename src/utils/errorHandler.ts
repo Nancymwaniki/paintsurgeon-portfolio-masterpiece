@@ -91,7 +91,7 @@ export const getUserFriendlyMessage = (error: AppError): string => {
       return error.message || 'Please check your input and try again.';
     
     case ErrorType.AUTHENTICATION:
-      return 'Your session has expired. Please log in again.';
+      return error.message || 'Your session has expired. Please log in again.';
     
     case ErrorType.AUTHORIZATION:
       return 'You do not have permission to perform this action.';
