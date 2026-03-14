@@ -35,9 +35,10 @@ export const ImageCard: React.FC<ImageCardProps> = ({
     onDelete?.();
   };
 
+  const baseUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:3000';
   const imageUrl = image.thumbnailUrl?.startsWith('http')
     ? image.thumbnailUrl
-    : `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:3000'}${image.thumbnailUrl || ''}`;
+    : `${baseUrl}/${(image.thumbnailUrl || '').replace(/^\//, '')}`;
 
   return (
     <motion.div
