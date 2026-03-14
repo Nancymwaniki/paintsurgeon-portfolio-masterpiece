@@ -22,7 +22,7 @@ const testimonials = [
 ];
 
 const Index = () => {
-  const { data: featuredImages } = useImages({ featured: true, limit: 4 });
+  const { data: featuredImages } = useImages({ featured: true, limit: 10 });
 
   return (
     <div className="min-h-screen">
