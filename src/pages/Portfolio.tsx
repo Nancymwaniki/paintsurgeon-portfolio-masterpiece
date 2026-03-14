@@ -74,23 +74,23 @@ const Portfolio = () => {
     <div className="min-h-screen pt-16 sm:pt-20">
       <section className="py-12 sm:py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-8 sm:mb-12">
+          <div className="relative flex items-center justify-center mb-8 sm:mb-12">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-display text-4xl sm:text-6xl md:text-8xl font-bold text-foreground"
+              className="font-display text-4xl sm:text-6xl md:text-8xl font-bold text-foreground text-center"
             >
               Port<span className="text-gradient">folio</span>
             </motion.h1>
             
-            {/* Upload button (admin only) - moved to top */}
+            {/* Upload button (admin only) */}
             {isAuthenticated && (
               <motion.button
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
                 onClick={() => setIsUploadModalOpen(true)}
-                className="p-3 sm:p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 transition-colors"
+                className="absolute right-0 p-3 sm:p-4 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 transition-colors"
                 aria-label="Upload image"
               >
                 <Plus size={24} />

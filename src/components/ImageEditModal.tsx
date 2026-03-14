@@ -83,9 +83,9 @@ export const ImageEditModal: React.FC<ImageEditModalProps> = ({
   if (!isOpen || !image) return null;
 
   // Construct the full image URL
-  const imageUrl = image.thumbnailPath.startsWith('http')
-    ? image.thumbnailPath
-    : `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:3000'}${image.thumbnailPath}`;
+  const imageUrl = image.thumbnailUrl?.startsWith('http')
+    ? image.thumbnailUrl
+    : `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:3000'}${image.thumbnailUrl || ''}`;
 
   return (
     <AnimatePresence>
