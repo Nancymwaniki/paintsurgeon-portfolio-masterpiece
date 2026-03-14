@@ -20,6 +20,7 @@ const Portfolio = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [imageToEdit, setImageToEdit] = useState<ImageResponseDto | null>(null);
   const [localImages, setLocalImages] = useState<ImageResponseDto[] | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
   const dragIndex = useRef<number | null>(null);
   const reorderMutation = useReorderImages();
 
@@ -41,12 +42,12 @@ const Portfolio = () => {
 
   const handleDragStart = (index: number) => {
     dragIndex.current = index;
+    setIsDragging(true);
   };
 
   const handleDragOver = (e: React.DragEvent, index: number) => {
     e.preventDefault();
     if (dragIndex.current === null || dragIndex.current === index) return;
-
     const reordered = [...sortedImages];
     const [moved] = reordered.splice(dragIndex.current, 1);
     reordered.splice(index, 0, moved);
@@ -55,8 +56,8 @@ const Portfolio = () => {
   };
 
   const handleDragEnd = async () => {
+    setIsDragging(false);
     if (!localImages) return;
-    // Persist new order to backend
     await Promise.all(
       localImages.map((img, i) => reorderMutation.mutateAsync({ id: img.id, order: i }))
     );
@@ -168,7 +169,7 @@ const Portfolio = () => {
 
           {/* Image Grid */}
           {!imagesLoading && sortedImages.length > 0 && (
-            <motion.div layout className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {sortedImages.map((image, index) => (
                 <div
                   key={image.id}
@@ -181,14 +182,14 @@ const Portfolio = () => {
                   <ImageCard
                     image={image}
                     index={index}
-                    onClick={() => handleImageClick(index)}
+                    onClick={() => { if (!isDragging) handleImageClick(index); }}
                     onEdit={isAuthenticated ? () => handleEditImage(image) : undefined}
                     onDelete={isAuthenticated ? () => handleEditImage(image) : undefined}
                     isDraggable={isAuthenticated}
                   />
                 </div>
               ))}
-            </motion.div>
+            </div>
           )}
         </div>
       </section>
