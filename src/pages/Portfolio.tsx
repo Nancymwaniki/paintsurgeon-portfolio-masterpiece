@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import ImageLightbox from "@/components/ImageLightbox";
@@ -8,7 +8,7 @@ import { ImageCard } from "@/components/ImageCard";
 import { ImageUploadModal } from "@/components/ImageUploadModal";
 import { ImageEditModal } from "@/components/ImageEditModal";
 import { useAuth } from "@/contexts/AuthContext";
-import { useImages } from "@/hooks/useImages";
+import { useImages, useReorderImages } from "@/hooks/useImages";
 import { useCategories } from "@/hooks/useCategories";
 import { ImageResponseDto } from "@/types/image";
 
@@ -19,6 +19,9 @@ const Portfolio = () => {
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [imageToEdit, setImageToEdit] = useState<ImageResponseDto | null>(null);
+  const [localImages, setLocalImages] = useState<ImageResponseDto[] | null>(null);
+  const dragIndex = useRef<number | null>(null);
+  const reorderMutation = useReorderImages();
 
   // Fetch images and categories (exclude artist portraits)
   const { data: images, isLoading: imagesLoading, error: imagesError } = useImages({
@@ -28,12 +31,37 @@ const Portfolio = () => {
   const { data: categories, isLoading: categoriesLoading } = useCategories();
 
   // Filter images by category
+  const sourceImages = localImages || images || [];
   const filteredImages = activeCategory
-    ? (images || []).filter((img) => img.categoryId === activeCategory)
-    : (images || []);
+    ? sourceImages.filter((img) => img.categoryId === activeCategory)
+    : sourceImages;
 
   // Sort images by order
   const sortedImages = [...filteredImages].sort((a, b) => a.order - b.order);
+
+  const handleDragStart = (index: number) => {
+    dragIndex.current = index;
+  };
+
+  const handleDragOver = (e: React.DragEvent, index: number) => {
+    e.preventDefault();
+    if (dragIndex.current === null || dragIndex.current === index) return;
+
+    const reordered = [...sortedImages];
+    const [moved] = reordered.splice(dragIndex.current, 1);
+    reordered.splice(index, 0, moved);
+    dragIndex.current = index;
+    setLocalImages(reordered.map((img, i) => ({ ...img, order: i })));
+  };
+
+  const handleDragEnd = async () => {
+    if (!localImages) return;
+    // Persist new order to backend
+    await Promise.all(
+      localImages.map((img, i) => reorderMutation.mutateAsync({ id: img.id, order: i }))
+    );
+    dragIndex.current = null;
+  };
 
   const handleImageClick = (index: number) => {
     setSelectedImageIndex(index);
@@ -142,15 +170,23 @@ const Portfolio = () => {
           {!imagesLoading && sortedImages.length > 0 && (
             <motion.div layout className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {sortedImages.map((image, index) => (
-                <ImageCard
+                <div
                   key={image.id}
-                  image={image}
-                  index={index}
-                  onClick={() => handleImageClick(index)}
-                  onEdit={isAuthenticated ? () => handleEditImage(image) : undefined}
-                  onDelete={isAuthenticated ? () => handleEditImage(image) : undefined}
-                  isDraggable={isAuthenticated}
-                />
+                  draggable={isAuthenticated}
+                  onDragStart={() => handleDragStart(index)}
+                  onDragOver={(e) => handleDragOver(e, index)}
+                  onDragEnd={handleDragEnd}
+                  className={isAuthenticated ? 'cursor-grab active:cursor-grabbing' : ''}
+                >
+                  <ImageCard
+                    image={image}
+                    index={index}
+                    onClick={() => handleImageClick(index)}
+                    onEdit={isAuthenticated ? () => handleEditImage(image) : undefined}
+                    onDelete={isAuthenticated ? () => handleEditImage(image) : undefined}
+                    isDraggable={isAuthenticated}
+                  />
+                </div>
               ))}
             </motion.div>
           )}
