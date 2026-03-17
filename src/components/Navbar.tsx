@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, User, LayoutDashboard, Activity, FolderOpen, LogOut } from "lucide-react";
+import { Menu, X, User, LayoutDashboard, Activity, FolderOpen, LogOut, Users, KeyRound } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import {
@@ -89,6 +89,18 @@ const Navbar = () => {
                     <span>Categories</span>
                   </Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/admin/admins" className="flex items-center cursor-pointer">
+                    <Users className="mr-2 h-4 w-4" />
+                    <span>Manage Admins</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/admin/change-password" className="flex items-center cursor-pointer">
+                    <KeyRound className="mr-2 h-4 w-4" />
+                    <span>Change Password</span>
+                  </Link>
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600 focus:text-red-600">
                   <LogOut className="mr-2 h-4 w-4" />
@@ -158,6 +170,22 @@ const Navbar = () => {
                   >
                     <FolderOpen size={18} />
                     Categories
+                  </Link>
+                  <Link
+                    to="/admin/admins"
+                    onClick={() => setOpen(false)}
+                    className="font-ui text-lg uppercase tracking-wide transition-colors text-muted-foreground flex items-center gap-2"
+                  >
+                    <Users size={18} />
+                    Manage Admins
+                  </Link>
+                  <Link
+                    to="/admin/change-password"
+                    onClick={() => setOpen(false)}
+                    className="font-ui text-lg uppercase tracking-wide transition-colors text-muted-foreground flex items-center gap-2"
+                  >
+                    <KeyRound size={18} />
+                    Change Password
                   </Link>
                   <button
                     onClick={() => {
