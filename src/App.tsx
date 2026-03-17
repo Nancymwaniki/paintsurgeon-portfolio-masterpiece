@@ -20,6 +20,8 @@ import { LoginPage } from "./pages/admin/LoginPage";
 import { DashboardPage } from "./pages/admin/DashboardPage";
 import { ActivityPage } from "./pages/admin/ActivityPage";
 import { CategoriesPage } from "./pages/admin/CategoriesPage";
+import { AdminsPage } from "./pages/admin/AdminsPage";
+import { ChangePasswordPage } from "./pages/admin/ChangePasswordPage";
 import { showErrorToast } from "@/utils/errorHandler";
 
 // Configure QueryClient with global error handling
@@ -79,6 +81,22 @@ const App = () => (
               element={
                 <ProtectedAdminRoute>
                   <CategoriesPage />
+                </ProtectedAdminRoute>
+              }
+            />
+            <Route
+              path="/admin/admins"
+              element={
+                <ProtectedAdminRoute>
+                  <AdminsPage />
+                </ProtectedAdminRoute>
+              }
+            />
+            <Route
+              path="/admin/change-password"
+              element={
+                <ProtectedAdminRoute>
+                  <ChangePasswordPage />
                 </ProtectedAdminRoute>
               }
             />

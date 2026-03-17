@@ -8,7 +8,9 @@ import {
   Tag, 
   TrendingUp,
   Loader2,
-  AlertCircle
+  AlertCircle,
+  Users,
+  KeyRound
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -150,6 +152,18 @@ export const DashboardPage = () => {
                     <Button variant="outline" className="w-full justify-start">
                       <TrendingUp className="h-4 w-4 mr-2" />
                       Activity Log
+                    </Button>
+                  </Link>
+                  <Link to="/admin/admins">
+                    <Button variant="outline" className="w-full justify-start">
+                      <Users className="h-4 w-4 mr-2" />
+                      Manage Admins
+                    </Button>
+                  </Link>
+                  <Link to="/admin/change-password">
+                    <Button variant="outline" className="w-full justify-start">
+                      <KeyRound className="h-4 w-4 mr-2" />
+                      Change Password
                     </Button>
                   </Link>
                 </div>

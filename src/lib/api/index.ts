@@ -6,3 +6,5 @@ export { categoriesApi } from './categories';
 export { submissionsApi } from './submissions';
 export { activityApi } from './activity';
 export { analyticsApi } from './analytics';
+export { usersApi } from './users';
+export type { AdminUser, CreateAdminDto, ChangePasswordDto } from './users';
