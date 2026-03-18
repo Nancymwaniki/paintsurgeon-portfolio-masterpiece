@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Paintbrush, Palette, PenTool, Home as HomeIcon, Star } from "lucide-react";
+import { ArrowRight, Paintbrush, Palette, PenTool, Home as HomeIcon, Star, MessageCircle, Pencil, CheckCircle, MapPin, Phone, Award, Clock, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -15,10 +15,41 @@ const services = [
   { icon: PenTool, title: "Illustrations", desc: "Custom illustrations and graphic design." },
 ];
 
+const stats = [
+  { icon: Award, value: "500+", label: "Projects Completed" },
+  { icon: Clock, value: "10+", label: "Years Experience" },
+  { icon: Users, value: "300+", label: "Happy Clients" },
+  { icon: MapPin, value: "Nairobi", label: "Based in Kenya" },
+];
+
+const steps = [
+  {
+    number: "01",
+    icon: MessageCircle,
+    title: "Consult",
+    desc: "Tell us what you need. We listen, ask the right questions, and understand your vision before anything else.",
+  },
+  {
+    number: "02",
+    icon: Pencil,
+    title: "Create",
+    desc: "We get to work — whether that's picking up a brush or opening a design tool. Every detail is crafted with care.",
+  },
+  {
+    number: "03",
+    icon: CheckCircle,
+    title: "Deliver",
+    desc: "You receive the finished work. We don't hand it over until it meets the standard we've set for every project.",
+  },
+];
+
 const testimonials = [
   { name: "Jane M.", text: "Paintsurgeon completely transformed our home. The attention to detail was incredible!", rating: 5 },
   { name: "David K.", text: "Best logo designer in Kenya. Professional, creative, and delivered on time.", rating: 5 },
   { name: "Sarah W.", text: "The branding they did for our uniforms and merchandise is absolutely stunning. Highly recommend!", rating: 5 },
+  { name: "Peter O.", text: "From the first consultation to the final delivery, the experience was seamless. Truly professional.", rating: 5 },
+  { name: "Amina R.", text: "Our office walls look incredible. The color choices and finish exceeded our expectations.", rating: 5 },
+  { name: "Brian N.", text: "Got our company logo done here. Clean, modern, and exactly what we envisioned. Will be back.", rating: 5 },
 ];
 
 const Index = () => {
@@ -29,37 +60,24 @@ const Index = () => {
       {/* Hero */}
       <section className="relative h-[100svh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <ImageWithLoader
-            src={heroBg}
-            alt="Paintsurgeon hero artwork"
-            className="w-full h-full object-cover"
-            loading="eager"
-          />
+          <ImageWithLoader src={heroBg} alt="Paintsurgeon hero artwork" className="w-full h-full object-cover" loading="eager" />
           <div className="absolute inset-0 bg-background/70" />
         </div>
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
             className="font-display text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold leading-none text-foreground"
           >
             Paint<span className="text-gradient">surgeon</span>
           </motion.h1>
-          
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
             className="font-body text-sm sm:text-base md:text-xl text-destructive-foreground max-w-2xl mx-auto px-2 mt-4 sm:mt-6"
           >
             Professional painting services & creative design solutions in Kenya. From walls to brands — we bring your vision to life.
           </motion.p>
-          
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
           >
             <Button asChild size="lg" className="font-ui text-sm sm:text-base bg-primary hover:bg-primary/90 text-primary-foreground">
@@ -72,26 +90,45 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Stats Bar */}
+      <section className="py-8 sm:py-10 bg-card border-y border-border relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 pointer-events-none" />
+        <div className="container mx-auto px-4 relative">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start"
+              >
+                <div className="p-2.5 bg-primary/10 rounded-full flex-shrink-0">
+                  <s.icon size={20} className="text-primary" />
+                </div>
+                <div>
+                  <p className="font-display text-xl sm:text-2xl text-foreground leading-none">{s.value}</p>
+                  <p className="font-ui text-xs text-muted-foreground uppercase tracking-wide mt-0.5">{s.label}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="py-12 sm:py-16 md:py-24 bg-card relative overflow-hidden">
-        {/* Decorative background */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
-        
         <div className="container mx-auto px-4 relative">
           <SectionHeading title="Our Services" subtitle="From physical painting to digital creativity" />
-          
           <p className="text-center text-muted-foreground font-body text-sm sm:text-base mb-8 max-w-3xl mx-auto">
             We specialize in transforming spaces and creating memorable brands. Whether it's painting your home or designing your company's visual identity, we bring expertise and creativity to every project.
           </p>
-          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {services.map((s, i) => (
               <motion.div
                 key={s.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-gradient-to-br from-muted via-muted to-muted/50 rounded-xl p-5 sm:p-6 border border-border hover:border-primary/50 transition-all hover:scale-105 hover:shadow-xl group"
               >
@@ -113,43 +150,28 @@ const Index = () => {
 
       {/* Featured Projects */}
       <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden">
-        {/* Decorative background */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
-        
         <div className="container mx-auto px-4 relative">
           <SectionHeading title="Featured Work" subtitle="A glimpse into our creative portfolio" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {featuredImages && featuredImages.length > 0 ? (
               featuredImages.map((image, i) => {
-                const imageUrl = image.url?.startsWith('http') 
-                  ? image.url 
+                const imageUrl = image.url?.startsWith('http')
+                  ? image.url
                   : `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:3000'}${image.url}`;
-                
                 return (
                   <motion.div
                     key={image.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl hover:shadow-2xl transition-shadow"
                   >
-                    <ImageWithLoader
-                      src={imageUrl}
-                      alt={image.title || 'Featured work'}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                    <ImageWithLoader src={imageUrl} alt={image.title || 'Featured work'} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
                       <div>
-                        {image.category && (
-                          <span className="text-primary font-body text-xs uppercase tracking-wider">
-                            {image.category.name}
-                          </span>
-                        )}
-                        {image.title && (
-                          <h3 className="font-display text-xl sm:text-3xl text-foreground">{image.title}</h3>
-                        )}
+                        {image.category && <span className="text-primary font-body text-xs uppercase tracking-wider">{image.category.name}</span>}
+                        {image.title && <h3 className="font-display text-xl sm:text-3xl text-foreground">{image.title}</h3>}
                       </div>
                     </div>
                   </motion.div>
@@ -169,21 +191,53 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* How It Works */}
       <section className="py-12 sm:py-16 md:py-24 bg-card relative overflow-hidden">
-        {/* Decorative background */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        
+        <div className="absolute top-0 right-1/3 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
         <div className="container mx-auto px-4 relative">
-          <SectionHeading title="What Clients Say" />
+          <SectionHeading title="How It Works" subtitle="Simple, straightforward, no surprises" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto relative">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="bg-gradient-to-br from-muted via-muted to-muted/50 rounded-xl p-5 sm:p-6 border border-border hover:border-primary/50 transition-all hover:shadow-xl group flex flex-col items-center text-center relative"
+              >
+                <div className="relative mb-6">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <step.icon size={28} className="text-primary" />
+                  </div>
+                  <span className="absolute -top-2 -right-2 font-display text-xs text-primary bg-primary/10 border border-primary/20 rounded-full w-6 h-6 flex items-center justify-center">
+                    {step.number.replace('0', '')}
+                  </span>
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl text-foreground mb-3">{step.title}</h3>
+                <p className="text-muted-foreground font-body text-sm sm:text-base leading-relaxed">{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-10 sm:mt-12">
+            <Button asChild size="lg" className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-105">
+              <a href="https://wa.me/254704459870?text=Hi%20Paintsurgeon!%20I'd%20like%20to%20get%20started." target="_blank" rel="noopener noreferrer">
+                Get Started <ArrowRight className="ml-2" size={18} />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-12 sm:py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="container mx-auto px-4 relative">
+          <SectionHeading title="What Clients Say" subtitle="500+ happy clients across Kenya" />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="bg-gradient-to-br from-muted via-muted to-muted/50 rounded-xl p-5 sm:p-6 border border-border hover:border-primary/30 transition-all hover:shadow-lg"
               >
                 <div className="flex gap-1 mb-3">
@@ -199,16 +253,44 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Location / Serving strip */}
+      <section className="py-10 sm:py-12 bg-card border-y border-border relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 via-transparent to-primary/5 pointer-events-none" />
+        <div className="container mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col sm:flex-row items-center justify-between gap-6"
+          >
+            <div className="text-center sm:text-left">
+              <div className="flex items-center gap-2 justify-center sm:justify-start mb-1">
+                <MapPin size={18} className="text-primary" />
+                <span className="font-display text-xl sm:text-2xl text-foreground uppercase">Nairobi, Kenya</span>
+              </div>
+              <p className="text-muted-foreground font-body text-sm">
+                Serving clients across Nairobi and beyond — painting, branding, and design delivered to your door.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button asChild variant="outline" className="font-ui border-foreground/20 text-foreground hover:bg-foreground/10">
+                <a href="https://wa.me/254704459870" target="_blank" rel="noopener noreferrer">
+                  <Phone size={16} className="mr-2" />+254 704 459 870
+                </a>
+              </Button>
+              <Button asChild className="font-ui bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link to="/contact">Send a Message <ArrowRight className="ml-2" size={16} /></Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-12 sm:py-16 md:py-24 text-center relative overflow-hidden">
-        {/* Decorative background */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="container mx-auto px-4 relative"
         >
