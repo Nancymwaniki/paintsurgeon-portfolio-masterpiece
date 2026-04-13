@@ -66,9 +66,9 @@ const Index = () => {
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-            className="font-display text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold leading-none text-foreground"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground"
           >
-            Paint<span className="text-gradient">surgeon</span>
+            <span className="text-gradient">PAINTSURGEON PAINTING SERVICES</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
