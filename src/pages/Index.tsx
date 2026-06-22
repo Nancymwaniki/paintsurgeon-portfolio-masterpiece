@@ -73,7 +73,7 @@ const Index = () => {
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-body text-sm sm:text-base md:text-xl text-foreground/75 max-w-2xl mx-auto px-2 mt-4 sm:mt-6"
+            className="font-body text-sm sm:text-base md:text-xl text-destructive-foreground max-w-2xl mx-auto px-2 mt-4 sm:mt-6"
           >
             Professional painting services & creative design solutions in Kenya. From walls to brands — we bring your vision to life.
           </motion.p>
