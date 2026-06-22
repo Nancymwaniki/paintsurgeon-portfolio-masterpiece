@@ -12,6 +12,26 @@ import { useImages, useReorderImages } from "@/hooks/useImages";
 import { useCategories } from "@/hooks/useCategories";
 import { ImageResponseDto } from "@/types/image";
 
+/** Assigns a CSS column span / row-height class based on position for a natural masonry feel */
+const getMasonryClass = (index: number): string => {
+  // Pattern repeats every 7 cards: tall, normal, normal, wide-tall, normal, tall, normal
+  const pattern = index % 7;
+  switch (pattern) {
+    case 0: return 'aspect-[3/4]';   // portrait
+    case 1: return 'aspect-square';
+    case 2: return 'aspect-[4/3]';   // landscape
+    case 3: return 'aspect-[3/4]';   // portrait
+    case 4: return 'aspect-[4/3]';
+    case 5: return 'aspect-square';
+    case 6: return 'aspect-[3/4]';
+    default: return 'aspect-square';
+  }
+};
+
+const SkeletonCard = ({ aspectClass }: { aspectClass: string }) => (
+  <div className={`${aspectClass} rounded-xl bg-muted animate-pulse`} />
+);
+
 const Portfolio = () => {
   const { isAuthenticated } = useAuth();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -136,10 +156,14 @@ const Portfolio = () => {
             />
           )}
 
-          {/* Loading state */}
+          {/* Loading state — skeleton grid */}
           {imagesLoading && (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Loading images...</p>
+            <div className="columns-2 sm:columns-2 lg:columns-3 gap-3 sm:gap-5 space-y-3 sm:space-y-5">
+              {Array.from({ length: 9 }).map((_, i) => (
+                <div key={i} className="break-inside-avoid">
+                  <SkeletonCard aspectClass={getMasonryClass(i)} />
+                </div>
+              ))}
             </div>
           )}
 
@@ -167,26 +191,29 @@ const Portfolio = () => {
             </div>
           )}
 
-          {/* Image Grid */}
+          {/* Masonry Image Grid */}
           {!imagesLoading && sortedImages.length > 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+            <div className="columns-2 sm:columns-2 lg:columns-3 gap-3 sm:gap-5 space-y-3 sm:space-y-5">
               {sortedImages.map((image, index) => (
                 <div
                   key={image.id}
+                  className="break-inside-avoid"
                   draggable={isAuthenticated}
                   onDragStart={() => handleDragStart(index)}
                   onDragOver={(e) => handleDragOver(e, index)}
                   onDragEnd={handleDragEnd}
-                  className={isAuthenticated ? 'cursor-grab active:cursor-grabbing' : ''}
                 >
-                  <ImageCard
-                    image={image}
-                    index={index}
-                    onClick={() => { if (!isDragging) handleImageClick(index); }}
-                    onEdit={isAuthenticated ? () => handleEditImage(image) : undefined}
-                    onDelete={isAuthenticated ? () => handleEditImage(image) : undefined}
-                    isDraggable={isAuthenticated}
-                  />
+                  {/* Override ImageCard's fixed aspect-square with masonry aspect */}
+                  <div className={`${getMasonryClass(index)} relative overflow-hidden rounded-xl ${isAuthenticated ? 'cursor-grab active:cursor-grabbing' : ''}`}>
+                    <ImageCard
+                      image={image}
+                      index={index}
+                      onClick={() => { if (!isDragging) handleImageClick(index); }}
+                      onEdit={isAuthenticated ? () => handleEditImage(image) : undefined}
+                      onDelete={isAuthenticated ? () => handleEditImage(image) : undefined}
+                      isDraggable={isAuthenticated}
+                    />
+                  </div>
                 </div>
               ))}
             </div>

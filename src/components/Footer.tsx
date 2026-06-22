@@ -33,7 +33,7 @@ const Footer = () => (
           </div>
           <div className="flex items-center gap-2">
             <Mail size={14} className="sm:w-4 sm:h-4 text-secondary flex-shrink-0" />
-            <span className="break-all">njorogekush@gmail.com</span>
+            <a href="mailto:njorogekush@gmail.com" className="hover:text-primary transition-colors break-all">njorogekush@gmail.com</a>
           </div>
           <div className="flex items-center gap-2">
             <MapPin size={14} className="sm:w-4 sm:h-4 text-accent flex-shrink-0" />

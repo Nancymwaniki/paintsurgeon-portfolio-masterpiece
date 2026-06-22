@@ -7,6 +7,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 import ImageWithLoader from "@/components/ImageWithLoader";
 import BackToTop from "@/components/BackToTop";
 import { useImages } from "@/hooks/useImages";
+import { AnimatedStat } from "@/components/AnimatedStat";
 
 const services = [
   { icon: HomeIcon, title: "House Painting", desc: "Interior & exterior painting that transforms your space." },
@@ -16,10 +17,10 @@ const services = [
 ];
 
 const stats = [
-  { icon: Award, value: "500+", label: "Projects Completed" },
-  { icon: Clock, value: "10+", label: "Years Experience" },
-  { icon: Users, value: "300+", label: "Happy Clients" },
-  { icon: MapPin, value: "Nairobi", label: "Based in Kenya" },
+  { icon: Award, numericValue: 500, suffix: "+", label: "Projects Completed" },
+  { icon: Clock, numericValue: 10, suffix: "+", label: "Years Experience" },
+  { icon: Users, numericValue: 300, suffix: "+", label: "Happy Clients" },
+  { icon: MapPin, numericValue: 0, staticValue: "Nairobi", label: "Based in Kenya" },
 ];
 
 const steps = [
@@ -44,12 +45,12 @@ const steps = [
 ];
 
 const testimonials = [
-  { name: "Jane M.", text: "Paintsurgeon completely transformed our home. The attention to detail was incredible!", rating: 5 },
-  { name: "David K.", text: "Best logo designer in Kenya. Professional, creative, and delivered on time.", rating: 5 },
-  { name: "Sarah W.", text: "The branding they did for our uniforms and merchandise is absolutely stunning. Highly recommend!", rating: 5 },
-  { name: "Peter O.", text: "From the first consultation to the final delivery, the experience was seamless. Truly professional.", rating: 5 },
-  { name: "Amina R.", text: "Our office walls look incredible. The color choices and finish exceeded our expectations.", rating: 5 },
-  { name: "Brian N.", text: "Got our company logo done here. Clean, modern, and exactly what we envisioned. Will be back.", rating: 5 },
+  { name: "Jane M.", text: "Paintsurgeon completely transformed our home. The attention to detail was incredible!", rating: 5, service: "House Painting" },
+  { name: "David K.", text: "Best logo designer in Kenya. Professional, creative, and delivered on time.", rating: 5, service: "Logo Design" },
+  { name: "Sarah W.", text: "The branding they did for our uniforms and merchandise is absolutely stunning. Highly recommend!", rating: 5, service: "Branding" },
+  { name: "Peter O.", text: "From the first consultation to the final delivery, the experience was seamless. Truly professional.", rating: 5, service: "House Painting" },
+  { name: "Amina R.", text: "Our office walls look incredible. The color choices and finish exceeded our expectations.", rating: 5, service: "Interior Painting" },
+  { name: "Brian N.", text: "Got our company logo done here. Clean, modern, and exactly what we envisioned. Will be back.", rating: 5, service: "Logo Design" },
 ];
 
 const Index = () => {
@@ -72,7 +73,7 @@ const Index = () => {
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-body text-sm sm:text-base md:text-xl text-destructive-foreground max-w-2xl mx-auto px-2 mt-4 sm:mt-6"
+            className="font-body text-sm sm:text-base md:text-xl text-foreground/75 max-w-2xl mx-auto px-2 mt-4 sm:mt-6"
           >
             Professional painting services & creative design solutions in Kenya. From walls to brands — we bring your vision to life.
           </motion.p>
@@ -90,26 +91,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="py-8 sm:py-10 bg-card border-y border-border relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 pointer-events-none" />
+      {/* Stats — flows directly out of the hero */}
+      <section className="py-10 sm:py-14 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-card/60 to-transparent pointer-events-none" />
         <div className="container mx-auto px-4 relative">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-4xl mx-auto">
             {stats.map((s, i) => (
-              <motion.div
+              <AnimatedStat
                 key={s.label}
-                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start"
-              >
-                <div className="p-2.5 bg-primary/10 rounded-full flex-shrink-0">
-                  <s.icon size={20} className="text-primary" />
-                </div>
-                <div>
-                  <p className="font-display text-xl sm:text-2xl text-foreground leading-none">{s.value}</p>
-                  <p className="font-ui text-xs text-muted-foreground uppercase tracking-wide mt-0.5">{s.label}</p>
-                </div>
-              </motion.div>
+                icon={s.icon}
+                numericValue={s.numericValue}
+                staticValue={s.staticValue}
+                suffix={s.suffix}
+                label={s.label}
+                delay={i * 0.1}
+              />
             ))}
           </div>
         </div>
@@ -168,7 +164,7 @@ const Index = () => {
                     className="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-xl hover:shadow-2xl transition-shadow"
                   >
                     <ImageWithLoader src={imageUrl} alt={image.title || 'Featured work'} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6">
                       <div>
                         {image.category && <span className="text-primary font-body text-xs uppercase tracking-wider">{image.category.name}</span>}
                         {image.title && <h3 className="font-display text-xl sm:text-3xl text-foreground">{image.title}</h3>}
@@ -238,15 +234,22 @@ const Index = () => {
                 key={t.name}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="bg-gradient-to-br from-muted via-muted to-muted/50 rounded-xl p-5 sm:p-6 border border-border hover:border-primary/30 transition-all hover:shadow-lg"
+                className="bg-gradient-to-br from-muted via-muted to-muted/50 rounded-xl p-5 sm:p-6 border border-border hover:border-primary/30 transition-all hover:shadow-lg flex flex-col"
               >
-                <div className="flex gap-1 mb-3">
-                  {Array.from({ length: t.rating }).map((_, j) => (
-                    <Star key={j} size={14} className="sm:w-4 sm:h-4 fill-secondary text-secondary" />
-                  ))}
+                {/* Large decorative quote mark */}
+                <span className="font-display text-5xl sm:text-6xl leading-none text-primary/20 select-none mb-1" aria-hidden="true">"</span>
+                <p className="text-foreground/85 font-body text-xs sm:text-sm leading-relaxed flex-1 -mt-2">{t.text}</p>
+                <div className="mt-4 pt-4 border-t border-border/60 flex items-center justify-between gap-2">
+                  <div>
+                    <p className="text-primary font-body text-xs sm:text-sm font-semibold">{t.name}</p>
+                    <p className="text-muted-foreground font-ui text-[10px] sm:text-xs uppercase tracking-wide mt-0.5">{t.service}</p>
+                  </div>
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: t.rating }).map((_, j) => (
+                      <Star key={j} size={12} className="fill-secondary text-secondary" />
+                    ))}
+                  </div>
                 </div>
-                <p className="text-foreground font-body text-xs sm:text-sm leading-relaxed mb-4">"{t.text}"</p>
-                <p className="text-primary font-body text-xs sm:text-sm font-semibold">— {t.name}</p>
               </motion.div>
             ))}
           </div>

@@ -50,7 +50,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group cursor-pointer relative overflow-hidden rounded-lg aspect-square"
+      className="group cursor-pointer relative overflow-hidden rounded-lg w-full h-full"
     >
       <ImageWithLoader
         src={imageUrl}

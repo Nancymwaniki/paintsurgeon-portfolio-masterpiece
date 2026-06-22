@@ -45,9 +45,7 @@
     --shadow-glow-yellow: 0 0 40px hsl(45 95% 55% / 0.3);
     --shadow-glow-blue: 0 0 40px hsl(200 75% 60% / 0.3);
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
